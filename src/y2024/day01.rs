@@ -1,4 +1,9 @@
 use clap::Args;
+use std::{
+    collections::HashMap,
+    fs::File,
+    io::{BufRead, BufReader, Read},
+};
 
 #[derive(Args, Debug)]
 pub struct Day1Args {
@@ -9,7 +14,6 @@ pub struct Day1Args {
     #[arg(short = 's', long = "score")]
     pub score: bool,
 }
-use std::{collections::HashMap, fs::File, io::{BufRead, BufReader, Read}};
 
 pub fn run(args: Day1Args) {
     let f = File::open(args.input).expect("Failed to open file.");
