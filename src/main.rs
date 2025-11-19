@@ -24,6 +24,9 @@ enum Year {
 enum Day2015 {
     #[command(name = "day1")]
     Day1(Year2015::day01::Day1Args),
+
+    #[command(name = "day2")]
+    Day2(Year2015::day02::Day2Args),
 }
 
 #[derive(Subcommand)]
@@ -38,14 +41,11 @@ fn main() {
 
     match cli.year {
         Year::Y2015(day) => match day {
-            Day2015::Day1(args) => {
-                y2015::day01::run(args);
-            }
+            Day2015::Day1(args) => y2015::day01::run(args),
+            Day2015::Day2(args) => y2015::day02::run(args),
         },
         Year::Y2024(day) => match day {
-            Day2024::Day1(args) => {
-                y2024::day01::run(args);
-            }
+            Day2024::Day1(args) => y2024::day01::run(args),
         },
     }
 }
